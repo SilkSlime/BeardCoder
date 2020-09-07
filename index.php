@@ -1,7 +1,8 @@
 <?php
 $connectionString = "host=ec2-54-228-209-117.eu-west-1.compute.amazonaws.com dbname=dtekv859mvf37 user=gidqbwvdasyumj port=5432 password=0e4a5066217587c4dfcd86d14a457c4db500a868f4573d8c13bba59bc822dba0";
 $connection = pg_connect($connectionString);
-echo $connection;
+$rows = pg_copy_to($connection, 'Codes');
+echo $rows;
 ?>
 <!DOCTYPE html>
 <html lang="en">
