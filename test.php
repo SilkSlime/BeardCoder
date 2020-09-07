@@ -9,7 +9,6 @@ $pdo = new PDO("pgsql:" . sprintf(
     $db["pass"],
     ltrim($db["path"], "/")
 ));
-echo($db);
-echo('<hr>');
-echo($pdo);
+$data = $pdo->pgsqlCopyToArray('Codes');
+echo(var_dump($data));
 ?>
