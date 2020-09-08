@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 echo("<div>AAA</div>");
 session_start();
 echo("<div>BBB</div>");
