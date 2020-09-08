@@ -1,3 +1,9 @@
+<?php
+session_start();
+$user = $_SESSION["username"];
+$isAdmin = $_SESSION["isAdmin"];
+$dbconn = pg_connect(getenv("DATABASE_URL"));
+?>
 <form action="register.php" method="POST" id="form">
     <div class="form-row">
         <div class="col-md-6 mb-3">
@@ -26,4 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
     }
 }
+?>
+<?php
+pg_free_result($result);
+pg_close($dbconn);
 ?>
