@@ -2,7 +2,7 @@
 echo("<div>AAA</div>");
 session_start();
 echo("<div>BBB</div>");
-$user = session("username");
+echo(var_dump($_SESSION["username"]);
 echo("<div>AAA</div>");
 $method = $_SERVER["REQUEST_METHOD"];
 echo("<div>AAA</div>");
