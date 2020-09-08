@@ -27,8 +27,9 @@ $dbconn = pg_connect(getenv("DATABASE_URL"));
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_POST["pass"]==$_POST["pass2"])
     {
+        $pUsername
         $phash = password_hash($_POST["pass"], PASSWORD_ARGON2I);
-        $query = "INSERT INTO users (username, passwordHash, isAdmin) VALUES (\"$_POST["username"]\", \"$phash\", \"false\");";
+        $query = "INSERT INTO `users` (`username`, `passwordHash`, `isAdmin`) VALUES (\"$pUsername\", \"$phash\", \"false\");";
         $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
     }
 }
