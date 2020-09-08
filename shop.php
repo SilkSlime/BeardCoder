@@ -97,6 +97,7 @@ while ($code = pg_fetch_assoc($codes)) {
                 <label class=\"btn btn-outline-danger\" for=\"danger-outlined\">Sold</label>
             </div>
         </td>
+        <td><span class=\"badge bg-primary\">$codeextra</span></td>
     </tr>
     ";
     $i++;
