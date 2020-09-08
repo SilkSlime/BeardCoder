@@ -4,6 +4,10 @@ session_start();
 $user = $_SESSION["username"];
 $isSU = $_SESSION["su"];
 
+if (!($isSU == 't')) {
+    redirect('/');
+    exit();
+}
 $dbconn = pg_connect(getenv("DATABASE_URL"));
 ?>
 <form action="register.php" method="POST" id="form">
