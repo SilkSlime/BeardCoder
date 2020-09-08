@@ -4,8 +4,17 @@ import time
 import os
         
 def main():
-    print("Hi")
-    postData = {'provider': "Dominos", 'code': '123123'}
+    username = "silkslime";
+    password = "7549567788";
+    postData = {
+        'username': username,
+        'password': password,
+        'code': 'TEST FROM PTHON',
+        'shop': "TESTSHOP",
+        'owner': username,
+        'badge': "BADGE",
+        'extra': 'EXTRA'
+        }
     response = requests.post('https://beardcoder.herokuapp.com/addcode.php', data = postData)
     print(response)
     print(response.text)
