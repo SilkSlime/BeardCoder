@@ -19,7 +19,7 @@ if (!$user)
 if ($method == "GET") {
     $codeshop = $_GET['shop'];
     $codeshopEscaped = pg_escape_string($codeshop);
-    $query = "SELECT * FROM codes WHERE owner='$user';";
+    $query = "SELECT * FROM codes WHERE owner='$user' AND shop='$codeshop';";
     $codes = pg_query($query);
 }
 ?>
