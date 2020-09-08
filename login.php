@@ -71,7 +71,6 @@ $method = $_SERVER["REQUEST_METHOD"];
             <div class="form-row">
                 <button class="btn btn-block btn-outline-success" type="submit">Login</button>
             </div>
-            
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

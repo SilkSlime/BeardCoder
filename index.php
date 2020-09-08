@@ -77,7 +77,7 @@ while ($shop = pg_fetch_assoc($shops)) {
         <div class=\"card-body\">
             <div class=\"row\">
                 <div class=\"col text-center\">
-                    <div href=\"shop.php?shop=$shopname\" class=\"btn btn-primary\">View avalible codes...</div>
+                    <a href=\"shop.php?shop=$shopname\" class=\"btn btn-primary\">View avalible codes...</a>
                 </div>
             </div>
         </div>
