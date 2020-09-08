@@ -1,23 +1,5 @@
-<form action="signup.php" method="POST" id="form">
+<form action="register.php" method="POST" id="form">
     <div class="form-row">
-        <div class="col-md-4 mb-3">
-            <label>Name</label>
-            <input type="text" class="form-control" name="name" placeholder="John" required>
-        </div>
-        <div class="col-md-4 mb-3">
-            <label>Surname</label>
-            <input type="text" class="form-control" name="surname" placeholder="Wick" required>
-        </div>
-        <div class="col-md-4 mb-3">
-            <label>Surname</label>
-            <input type="text" class="form-control" name="group" placeholder="IU4-12B" required>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col-md-6 mb-3">
-            <label>Email</label>
-            <input type="email" class="form-control" name="email" placeholder="example@mail.com" required>
-        </div>
         <div class="col-md-6 mb-3">
             <label>Username</label>
             <input type="text" class="form-control" name="username" placeholder="John1337" required>
@@ -33,4 +15,15 @@
             <input type="password" class="form-control" name="pass2" placeholder="Repeat password" required>
         </div>
     </div>
+    <button action="submit">отправить</button>
 </form>
+<?php
+if ($method == "POST") {
+    if ($_POST["pass"]==$_POST["pass2"])
+    {
+        $phash = password_hash($_POST["pass"], PASSWORD_ARGON2I);
+        $query = "INSERT INTO users (username, passwordHash, isAdmin) VALUES (\"$_POST["username"]\", \"$phash\", \"false\");";
+        $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
+    }
+}
+?>
