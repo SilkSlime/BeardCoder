@@ -62,7 +62,7 @@ if ($method == "POST") {
 <!-- -------------------------------------------------------- -->
 <?php
 while ($code = pg_fetch_assoc($codes)) {
-    echo var_dump($code+'<hr>');
+    echo var_dump($code)+'<hr>';
 }
 ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
