@@ -43,15 +43,9 @@ $method = $_SERVER["REQUEST_METHOD"];
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="./mustache.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-            BeardCoderApp
+            <img src="ico/mustache.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            BeardCodesApp
         </a>
-            <div class="mr-auto mb-2 mb-lg-0">
-            </div>
-            <button class="btn btn-outline-success">
-                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                Save
-            </button>
         </div>
     </nav>
     <div class="container">

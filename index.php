@@ -50,10 +50,10 @@ if ($method == "POST") {
         </a>
             <div class="mr-auto mb-2 mb-lg-0">
             </div>
-            <button class="btn btn-outline-danger">
+            <a href="/logout.php" class="btn btn-outline-danger">
                 <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                 Exit
-            </button>
+            </a>
         </div>
     </nav>
     <div class="container">
@@ -77,7 +77,7 @@ while ($shop = pg_fetch_assoc($shops)) {
         <div class=\"card-body\">
             <div class=\"row\">
                 <div class=\"col text-center\">
-                    <a href=\"shop.php?shop=$shopname\" class=\"btn btn-primary\">View avalible codes...</a>
+                    <a href=\"codes.php?shop=$shopname\" class=\"btn btn-primary\">View avalible codes...</a>
                 </div>
             </div>
         </div>

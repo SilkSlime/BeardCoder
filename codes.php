@@ -19,7 +19,7 @@ if (!$user)
 if ($method == "GET") {
     $codeshop = $_GET['shop'];
     $codeshopEscaped = pg_escape_string($codeshop);
-    $query = "SELECT * FROM codes WHERE owner='$user' AND shop='$codeshop';";
+    $query = "SELECT * FROM codes WHERE owner='$user' AND shop='$codeshopEscaped';";
     $codes = pg_query($query);
 }
 ?>
@@ -52,10 +52,10 @@ if ($method == "POST") {
         </a>
             <div class="mr-auto mb-2 mb-lg-0">
             </div>
-            <button class="btn btn-outline-danger">
+            <a href="/logout.php" class="btn btn-outline-danger">
                 <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                 Exit
-            </button>
+            </a>
         </div>
     </nav>
     <div class="container">
