@@ -1,11 +1,16 @@
 <?php
+require('utility/functions.php');
 session_start();
-echo(var_dump($_SESSION));
+$user = $_SESSION["username"];
+$isAdmin = $_SESSION["isAdmin"];
+$dbconn = pg_connect(getenv("DATABASE_URL"));
 $method = $_SERVER["REQUEST_METHOD"];
+?>
+<?php
+echo(var_dump($_SESSION));
 
 // Соединение, выбор базы данных
-$dbconn = pg_connect(getenv("DATABASE_URL"))
-    or die('Не удалось соединиться: ' . pg_last_error());
+$dbconn = pg_connect(getenv("DATABASE_URL"));
 // Выполнение SQL-запроса
 $query = 'SELECT * FROM codes';
 $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
@@ -23,9 +28,6 @@ echo "</table>\n";
 
 // Очистка результата
 pg_free_result($result);
-
 // Закрытие соединения
 pg_close($dbconn);
-
-
 ?>

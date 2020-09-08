@@ -1,3 +1,35 @@
+<?php
+require('utility/functions.php');
+session_start();
+$user = $_SESSION["username"];
+$isAdmin = $_SESSION["su"];
+$dbconn = pg_connect(getenv("DATABASE_URL"));
+$method = $_SERVER["REQUEST_METHOD"];
+
+if (!$user)
+    {
+        redirect('/login.php');
+    }
+?>
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
+<?php
+if ($method == "GET") {
+
+}
+?>
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
+<?php
+if ($method == "POST") {
+    
+}
+?>
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +44,21 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="./mustache.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-            View'n'Control App
+            <img src="ico/mustache.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            BeardCodesApp
         </a>
             <div class="mr-auto mb-2 mb-lg-0">
             </div>
-            <button class="btn btn-outline-success">
+            <button class="btn btn-outline-danger">
                 <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                Save
+                Exit
             </button>
         </div>
     </nav>
-    <?php
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
+<?php
     $connectionString = "host=ec2-54-228-209-117.eu-west-1.compute.amazonaws.com dbname=dtekv859mvf37 user=gidqbwvdasyumj port=5432 password=0e4a5066217587c4dfcd86d14a457c4db500a868f4573d8c13bba59bc822dba0";
     $connection = pg_connect($connectionString);
     $rows = pg_copy_to($connection, 'Codes');
