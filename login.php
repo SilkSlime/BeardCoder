@@ -25,19 +25,17 @@ $method = $_SERVER["REQUEST_METHOD"];
     }
     if ($method == 'POST') {
         $username = $_POST['username'];
+        $usernameEscaped = pg_escape_string($username);
         $password = $_POST['pass'];
-        $query = "SELECT * FROM users WHERE username='$username';";
+        $query = "SELECT * FROM users WHERE username='$usernameEscaped';";
         $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
         $line = pg_fetch_assoc($result);
-        echo var_dump($line);
-        echo '<hr>';
-        echo '<hr>';
         if (password_verify($password, $line['passwordhash'])) {
-            echo '<hr>';
-            echo var_dump($line);
             $_SESSION['username'] = $username;
             $_SESSION['isAdmin'] = $line['isadmin'];
             redirect('/');
+        } else {
+            echo "<script>alert('Invalid password')</script>";
         }
 
     }
