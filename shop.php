@@ -111,52 +111,6 @@ while ($code = pg_fetch_assoc($codes)) {
               <span aria-hidden="true">&times;</span>
             </button>
         </div>
-
-        <span class="badge bg-danger">Free Pizza</span>
-        <span class="badge bg-danger">-40%</span>
-        <span class="badge bg-danger">Additional Pepperoni</span>
-        
-        
-                <tr>
-                    <th scope="row">1</th>
-                    <td>98731CEC</td>
-                    <td><span class="badge bg-danger">Free Pizza</span></td>
-                    <td>
-                        <div class="btn-group">
-                            <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
-                            <label class="btn btn-outline-success" for="success-outlined">Remain</label>
-                            <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-                            <label class="btn btn-outline-danger" for="danger-outlined">Sold</label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>98731CEC</td>
-                    <td><span class="badge bg-danger">Free Pizza</span></td>
-                    <td>
-                        <div class="btn-group">
-                            <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
-                            <label class="btn btn-outline-success" for="success-outlined">Remain</label>
-                            <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-                            <label class="btn btn-outline-danger" for="danger-outlined">Sold</label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>98731CEC</td>
-                    <td><span class="badge bg-danger">Free Pizza</span></td>
-                    <td>
-                        <div class="btn-group">
-                            <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
-                            <label class="btn btn-outline-success" for="success-outlined">Remain</label>
-                            <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-                            <label class="btn btn-outline-danger" for="danger-outlined">Sold</label>
-                        </div>
-                    </td>
-                </tr>
-            
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
