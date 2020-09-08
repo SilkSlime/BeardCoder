@@ -90,7 +90,7 @@ while ($code = pg_fetch_assoc($codes)) {
         <td>$codecode</td>
         <td><span class=\"badge bg-danger\">$codebadge</span></td>
         <td>
-            <div class=\"btn-group\">"
+            <div class=\"btn-group\">";
     if ($codestatus == "VACANT") {
         echo "
                 <a class=\"btn btn-sm btn-success disbled\">Vacant</a>
