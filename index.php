@@ -80,7 +80,7 @@ if ($method == "POST") {
 while ($shop = pg_fetch_assoc($shops)) {
     $shopname = $shop['name'];
     $shopdescription = $shop['description'];
-    $shopimage = addslashes($shop['image']);
+    $shopimage = $shop['webimage'];
     echo "
     <div class=\"card mt-3\">
         <div class=\"card-body\">
