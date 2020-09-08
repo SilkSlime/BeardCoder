@@ -84,37 +84,40 @@ while ($code = pg_fetch_assoc($codes)) {
     $codebadge = $code["badge"];
     $codestatus = $code["status"];
     $codeextra = $code["extra"];
+    echo "
+    <tr>
+        <th scope=\"row\">$i</th>
+        <td>$codecode</td>
+        <td><span class=\"badge bg-danger\">$codebadge</span></td>
+        <td>
+            <div class=\"btn-group\">"
     if ($codestatus == "VACANT") {
         echo "
-        <tr>
-            <th scope=\"row\">$i</th>
-            <td>$codecode</td>
-            <td><span class=\"badge bg-danger\">$codebadge</span></td>
-            <td>
-                <div class=\"btn-group\">
-                    <a class=\"btn btn-sm btn-outline-success\" disabled>Vacant</a>
-                    <a class=\"btn btn-sm btn-outline-warning\">Taken</a>
-                </div>
-            </td>
-            <td><span class=\"badge bg-primary\">$codeextra</span></td>
-        </tr>
-        ";
-    } else {
-        echo "
-        <tr>
-            <th scope=\"row\">$i</th>
-            <td>$codecode</td>
-            <td><span class=\"badge bg-danger\">$codebadge</span></td>
-            <td>
-                <div class=\"btn-group\">
-                    <a class=\"btn btn-sm btn-outline-success\">Vacant</a>
-                    <a class=\"btn btn-sm btn-outline-warning\" disabled>Taken</a>
-                </div>
-            </td>
-            <td><span class=\"badge bg-primary\">$codeextra</span></td>
-        </tr>
+                <a class=\"btn btn-sm btn-success disbled\">Vacant</a>
+                <a class=\"btn btn-sm btn-outline-warning\">Sold</a>
+                <a class=\"btn btn-sm btn-outline-danger\">Invalid</a>
         ";
     }
+    if ($codestatus == "INVALID"){
+        echo "
+                <a class=\"btn btn-sm btn-outline-success\">Vacant</a>
+                <a class=\"btn btn-sm btn-outline-warning\">Sold</a>
+                <a class=\"btn btn-sm btn-danger disbled\">Invalid</a>
+        ";
+    }
+    if ($codestatus == "SOLD") {
+        echo "
+                <a class=\"btn btn-sm btn-outline-success\">Vacant</a>
+                <a class=\"btn btn-sm btn-warning disabled\">Sold</a>
+                <a class=\"btn btn-sm btn-outline-danger disbled\">Invalid</a>
+        ";
+    }
+    echo "
+                </div>
+            </td>
+            <td><span class=\"badge bg-primary\">$codeextra</span></td>
+        </tr>
+        ";
     
     $i++;
 }
