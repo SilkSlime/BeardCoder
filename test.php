@@ -2,10 +2,10 @@
 echo("<h1>AAA</h1>");
 session_start();
 $user = session("username");
-$method = $_SERVER["REQUEST_METHOD"]
+$method = $_SERVER["REQUEST_METHOD"];
 
-echo($user)
-echo($method)
+echo($user);
+echo($method);
 
 $db = parse_url(getenv("DATABASE_URL"));
 $pdo = new PDO("pgsql:" . sprintf(
