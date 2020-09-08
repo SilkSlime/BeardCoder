@@ -85,6 +85,7 @@ if ($method == "POST") {
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
 <?php
+echo "<a href=\"/\" class=\"btn btn-outline-success\">Back</a>";
 echo "<h2>$codeshop</h2>";
 ?>
 <table class="table table-hover ">
