@@ -68,7 +68,7 @@ $method = $_SERVER["REQUEST_METHOD"];
                     <input type="password" class="form-control" name="pass" placeholder="Rassword" required>
                 </div>
             </div>
-            <button class="btn btn-block btn-outline-seccess" type="submit">Login</button>
+            <button class="btn btn-block btn-outline-success" type="submit">Login</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
