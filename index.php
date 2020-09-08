@@ -18,7 +18,7 @@ if (!$user)
 <?php
 if ($method == "GET") {
     $query = 'SELECT * FROM shops';
-    $result = pg_query($query));
+    $result = pg_query($query);
     $shops = pg_fetch_assoc($result);
 }
 ?>
