@@ -29,7 +29,7 @@ $method = $_SERVER["REQUEST_METHOD"];
         $query = "SELECT * FROM users WHERE username='$username';";
         $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
         $line = pg_fetch_assoc($result);
-        echo $line;
+        echo var_dump($line);
         if ($phash == $line['passwordhash']) {
             $_SESSION['username'] = $username;
             $_SESSION['isAdmin'] = $line['isadmin'];
