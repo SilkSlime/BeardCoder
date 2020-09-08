@@ -33,8 +33,8 @@ $dbconn = pg_connect(getenv("DATABASE_URL"));
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_POST["pass"]==$_POST["pass2"])
     {
-        $pUsername = $_POST['username'];
-        $phash = password_hash($_POST["pass"], PASSWORD_ARGON2I);
+        $pUsername = pg_escape_string($_POST['username']);
+        $phash = pg_escape_string(password_hash($_POST["pass"], PASSWORD_ARGON2I));
         $query = "INSERT INTO users (username, passwordHash, su) VALUES ('$pUsername', '$phash', 'false');";
         $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
     }
