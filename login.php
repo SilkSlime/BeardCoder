@@ -6,25 +6,7 @@ $isAdmin = $_SESSION["isAdmin"];
 $dbconn = pg_connect(getenv("DATABASE_URL"));
 $method = $_SERVER["REQUEST_METHOD"];
 ?>
-<?php
-    if ($user)
-    {
-        redirect('/');
-    }
-    if ($method == 'POST') {
-        $username = $_POST['username'];
-        $phash = password_hash($_POST["pass"], PASSWORD_ARGON2I);
-        $query = "SELECT * FROM users WHERE username='$username';";
-        $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
-        $line = pg_fetch_assoc($result);
-        if ($phash == $line['passwordhash']) {
-            $_SESSION['username'] = $username;
-            $_SESSION['isAdmin'] = $line['isadmin'];
-            redirect('/');
-        }
 
-    }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +18,26 @@ $method = $_SERVER["REQUEST_METHOD"];
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 </head>
 <body>
+<?php
+    if ($user)
+    {
+        redirect('/');
+    }
+    if ($method == 'POST') {
+        $username = $_POST['username'];
+        $phash = password_hash($_POST["pass"], PASSWORD_ARGON2I);
+        $query = "SELECT * FROM users WHERE username='$username';";
+        $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
+        $line = pg_fetch_assoc($result);
+        echo $line;
+        if ($phash == $line['passwordhash']) {
+            $_SESSION['username'] = $username;
+            $_SESSION['isAdmin'] = $line['isadmin'];
+            redirect('/');
+        }
+
+    }
+?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
         <a class="navbar-brand" href="#">
