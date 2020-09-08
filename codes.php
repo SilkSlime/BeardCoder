@@ -30,18 +30,18 @@ if ($method == "GET") {
 <?php
 if ($method == "POST") {
     $codeshop = $_GET["shop"];
-    $codeshopEscaped = pg_escape_string($_POST["shop"]);
+    $codeshopEscaped = pg_escape_string($codeshop);
     $action = $_POST["action"];
     $codecodeEscaped = pg_escape_string($_POST["code"]);
     $usernameEscaped = pg_escape_string($username);
     if ($action == "Vacant")
     {
-        $query = "UPDATE codes SET status='VACANT' WHERE code='$codecodeEscaped' AND shop='$codeshopEscaped';";
+        $query = "UPDATE codes SET status='VACANT' WHERE code='$codecodeEscaped' AND owner='$usernameEscaped' AND shop='$codeshopEscaped';";
         pg_query($query);
     }
     if ($action == "Sold")
     {
-        $query = "UPDATE codes SET status='SOLD' WHERE code='$codecodeEscaped';";
+        $query = "UPDATE codes SET status='SOLD' WHERE code='$codecodeEscaped' AND owner='$usernameEscaped' AND shop='$codeshopEscaped';";
         pg_query($query);
     }
     if ($action == "INVALID")
