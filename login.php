@@ -1,5 +1,5 @@
 <?php
-require('utility/functions.php');
+require('./utility/functions.php');
 session_start();
 $user = $_SESSION["username"];
 $isAdmin = $_SESSION["isAdmin"];
