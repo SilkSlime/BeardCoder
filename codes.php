@@ -90,29 +90,33 @@ while ($code = pg_fetch_assoc($codes)) {
         <td>$codecode</td>
         <td><span class=\"badge bg-danger\">$codebadge</span></td>
         <td>
-            <div class=\"btn-group\">";
+            <div class=\"btn-group\">
+                <form action=\"codes.php\" method=\"POST\" id=\"form\" style=\"max\">
+            ";
+            
     if ($codestatus == "VACANT") {
         echo "
                 <a class=\"btn btn-sm btn-success disabled\">Vacant</a>
-                <a class=\"btn btn-sm btn-outline-warning\">Sold</a>
-                <a class=\"btn btn-sm btn-outline-danger\">Invalid</a>
+                <button class=\"btn btn-sm btn-outline-warning\">Sold</a>
+                <button class=\"btn btn-sm btn-outline-danger\">Invalid</a>
         ";
     }
     if ($codestatus == "INVALID"){
         echo "
-                <a class=\"btn btn-sm btn-outline-success\">Vacant</a>
-                <a class=\"btn btn-sm btn-outline-warning\">Sold</a>
+                <button class=\"btn btn-sm btn-outline-success\">Vacant</a>
+                <button class=\"btn btn-sm btn-outline-warning\">Sold</a>
                 <a class=\"btn btn-sm btn-danger disabled\">Invalid</a>
         ";
     }
     if ($codestatus == "SOLD") {
         echo "
-                <a class=\"btn btn-sm btn-outline-success\">Vacant</a>
-                <a class=\"btn btn-sm btn-warning disabled\">Sold</a>
-                <a class=\"btn btn-sm btn-outline-danger\">Invalid</a>
+                <button class=\"btn btn-sm btn-outline-success\">Vacant</a>
+                <button class=\"btn btn-sm btn-warning disabled\">Sold</a>
+                <button class=\"btn btn-sm btn-outline-danger\">Invalid</a>
         ";
     }
     echo "
+                    </form>
                 </div>
             </td>
             <td><span class=\"badge bg-primary\">$codeextra</span></td>
