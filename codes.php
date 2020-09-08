@@ -1,12 +1,12 @@
 <?php
 require('util/functions.php');
 session_start();
-$user = $_SESSION["username"];
+$username = $_SESSION["username"];
 $isAdmin = $_SESSION["su"];
 $dbconn = pg_connect(getenv("DATABASE_URL"));
 $method = $_SERVER["REQUEST_METHOD"];
 
-if (!$user)
+if (!$username)
 {
     redirect('/login.php');
     exit();
@@ -19,7 +19,8 @@ if (!$user)
 if ($method == "GET") {
     $codeshop = $_GET['shop'];
     $codeshopEscaped = pg_escape_string($codeshop);
-    $query = "SELECT * FROM codes WHERE owner='$user' AND shop='$codeshopEscaped';";
+    $usernameEscaped = pg_escape_string($username);
+    $query = "SELECT * FROM codes WHERE owner='$usernameEscaped' AND shop='$codeshopEscaped';";
     $codes = pg_query($query);
 }
 ?>
@@ -29,11 +30,26 @@ if ($method == "GET") {
 <?php
 if ($method == "POST") {
     $codeshop = $_POST["shop"];
+    $codeshopEscaped = pg_escape_string($_POST["shop"]);
     $action = $_POST["action"];
-    if ($action == "VACANT")
+    $codecodeEscaped = pg_escape_string($_POST["code"]);
+    $usernameEscaped = pg_escape_string($username);
+    if ($action == "Vacant")
     {
-        
+        $query = "UPDATE codes SET status='VACANT' WHERE code='$codecodeEscaped' AND owner='$usernameEscaped' AND shop='$codeshopEscaped';";
+        pg_query($query);
     }
+    if ($action == "Sold")
+    {
+        $query = "UPDATE codes SET status='SOLD' WHERE code='$codecodeEscaped' AND owner='$usernameEscaped' AND shop='$codeshopEscaped';";
+        pg_query($query);
+    }
+    if ($action == "INVALID")
+    {
+        $query = "UPDATE codes SET status='INVALID' WHERE code='$codecodeEscaped' AND owner='$usernameEscaped' AND shop='$codeshopEscaped';";
+        pg_query($query);
+    }
+    redirect("/codes.php?shop=$codeshop");
 }
 ?>
 <!-- -------------------------------------------------------- -->
