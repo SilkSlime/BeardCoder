@@ -7,7 +7,7 @@ $dbconn = pg_connect(getenv("DATABASE_URL"));
 $method = $_SERVER["REQUEST_METHOD"];
 ?>
 <?php
-    if (!$user)
+    if ($user)
     {
         redirect('/');
     }
