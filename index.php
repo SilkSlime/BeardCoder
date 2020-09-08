@@ -9,6 +9,7 @@ $method = $_SERVER["REQUEST_METHOD"];
 if (!$user)
     {
         redirect('/login.php');
+        exit();
     }
 ?>
 <!-- -------------------------------------------------------- -->
