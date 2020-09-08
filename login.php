@@ -25,15 +25,14 @@ $method = $_SERVER["REQUEST_METHOD"];
     }
     if ($method == 'POST') {
         $username = $_POST['username'];
-        $phash = password_hash($_POST["pass"], PASSWORD_ARGON2I);
+        $password = $_POST['pass'];
         $query = "SELECT * FROM users WHERE username='$username';";
         $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
         $line = pg_fetch_assoc($result);
         echo var_dump($line);
         echo '<hr>';
-        echo var_dump($phash);
         echo '<hr>';
-        if ($phash == $line['passwordhash']) {
+        if (password_verify($password, $line['passwordhash'])) {
             echo '<hr>';
             echo var_dump($line);
             $_SESSION['username'] = $username;
