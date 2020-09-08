@@ -84,20 +84,38 @@ while ($code = pg_fetch_assoc($codes)) {
     $codebadge = $code["badge"];
     $codestatus = $code["status"];
     $codeextra = $code["extra"];
-    echo "
-    <tr>
-        <th scope=\"row\">$i</th>
-        <td>$codecode</td>
-        <td><span class=\"badge bg-danger\">$codebadge</span></td>
-        <td>
-            <div class=\"btn-group\">
-                <a class=\"btn btn-sm btn-outline-succes\" disabled>Vacant</a>
-                <a class=\"btn btn-sm btn-outline-warning\">Taken</a>
-            </div>
-        </td>
-        <td><span class=\"badge bg-primary\">$codeextra</span></td>
-    </tr>
-    ";
+    if ($codestatus == "VACANT") {
+        echo "
+        <tr>
+            <th scope=\"row\">$i</th>
+            <td>$codecode</td>
+            <td><span class=\"badge bg-danger\">$codebadge</span></td>
+            <td>
+                <div class=\"btn-group\">
+                    <a class=\"btn btn-sm btn-outline-succes\" disabled>Vacant</a>
+                    <a class=\"btn btn-sm btn-outline-warning\">Taken</a>
+                </div>
+            </td>
+            <td><span class=\"badge bg-primary\">$codeextra</span></td>
+        </tr>
+        ";
+    } else {
+        echo "
+        <tr>
+            <th scope=\"row\">$i</th>
+            <td>$codecode</td>
+            <td><span class=\"badge bg-danger\">$codebadge</span></td>
+            <td>
+                <div class=\"btn-group\">
+                    <a class=\"btn btn-sm btn-outline-succes\">Vacant</a>
+                    <a class=\"btn btn-sm btn-outline-warning\" disabled>Taken</a>
+                </div>
+            </td>
+            <td><span class=\"badge bg-primary\">$codeextra</span></td>
+        </tr>
+        ";
+    }
+    
     $i++;
 }
 ?>
