@@ -6,6 +6,7 @@ $method = $_SERVER["REQUEST_METHOD"];
 if ($method == "POST") {
     $username = pg_escape_string($_POST["username"]);
     $password = $_POST["password"];
+    echo $_POST["code"];
 
     $code = pg_escape_string($_POST["code"]);
     $shop = pg_escape_string($_POST["shop"]);
