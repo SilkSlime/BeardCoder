@@ -15,7 +15,7 @@
             <input type="password" class="form-control" name="pass2" placeholder="Repeat password" required>
         </div>
     </div>
-    <button action="submit">отправить</button>
+    <button type="submit">отправить</button>
 </form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
