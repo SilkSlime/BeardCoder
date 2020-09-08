@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         $pUsername = $_POST['username'];
         $phash = password_hash($_POST["pass"], PASSWORD_ARGON2I);
-        $query = "INSERT INTO users (username, passwordHash, isAdmin) VALUES ('$pUsername', '$phash', \"false\");";
+        $query = "INSERT INTO users (username, passwordHash, isAdmin) VALUES ('$pUsername', '$phash', 'false');";
         $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
     }
 }
