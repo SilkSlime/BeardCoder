@@ -18,18 +18,17 @@ if ($method == "POST") {
     $result = pg_query($query);
     $line = pg_fetch_assoc($result);
     if (password_verify($password, $line['passwordhash'])) {
-        echo $_POST["code"];
         // Using All Escaped
         $query = "INSERT INTO codes (code, shop, owner, badge, status, extra) VALUES ('$code', '$shop', '$owner', '$badge', '$status', '$extra');";
         $result = pg_query($query);
         if ($result) {
-            echo 'Good!';
+            echo 'GOOD';
         } else {
-            echo 'Somthing bad!';
+            echo 'BAD';
         }
 
     } else {
-        echo 'Wrong password/username!';
+        echo 'BAD';
     }
 } else {
     redirect('/');

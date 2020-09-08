@@ -9,7 +9,7 @@ def main():
     postData = {
         'username': username,
         'password': password,
-        'code': 'TEST FROM PTHON 2',
+        'code': 'TEST FdROM PTHON 2',
         'shop': "TESTSHOP",
         'owner': username,
         'badge': "BADGE",
@@ -17,7 +17,6 @@ def main():
         'extra': 'EXTRA'
         }
     response = requests.post('https://beardcoder.herokuapp.com/addcode.php', data = postData)
-    print(response)
     print(response.text)
     
     
