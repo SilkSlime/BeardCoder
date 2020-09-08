@@ -145,7 +145,11 @@ while ($code = pg_fetch_assoc($codes)) {
                     </form>
                 </div>
             </td>
-            <td><span class=\"badge bg-primary\">$codeextra</span></td>
+            <td><span class=\"badge bg-primary\">";
+    if ($codeextra) {
+        echo $codeextra;
+    }
+    echo "</span></td>
         </tr>
         ";
     
