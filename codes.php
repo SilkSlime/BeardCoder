@@ -84,6 +84,8 @@ while ($code = pg_fetch_assoc($codes)) {
     $codebadge = $code["badge"];
     $codestatus = $code["status"];
     $codeextra = $code["extra"];
+
+    $buttonstyle = '';
     echo "
     <tr>
         <th scope=\"row\">$i</th>
@@ -91,7 +93,7 @@ while ($code = pg_fetch_assoc($codes)) {
         <td><span class=\"badge bg-danger\">$codebadge</span></td>
         <td>
             <div class=\"btn-group\">
-                <form action=\"codes.php\" method=\"POST\" id=\"form\" style=\"max\">
+                <form action=\"codes.php?shop=$codeshop\" method=\"POST\" id=\"form\" style=\"max\">
             ";
             
     if ($codestatus == "VACANT") {
