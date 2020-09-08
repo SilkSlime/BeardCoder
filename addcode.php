@@ -4,7 +4,8 @@ $dbconn = pg_connect(getenv("DATABASE_URL"));
 $method = $_SERVER["REQUEST_METHOD"];
 
 if ($method == "POST") {
-    echo "planned text!";
+    echo "Planned text!";
+    echo var_dump($_POST);
 }
 
 ?>
