@@ -28,7 +28,9 @@ if ($method == "GET") {
 <!-- -------------------------------------------------------- -->
 <?php
 if ($method == "POST") {
-    
+    $codeshop = $_POST["shop"];
+    $action = $_POST["action"];
+    if ($action == "VACANT")
 }
 ?>
 <!-- -------------------------------------------------------- -->
@@ -93,28 +95,29 @@ while ($code = pg_fetch_assoc($codes)) {
         <td><span class=\"badge bg-danger\">$codebadge</span></td>
         <td>
             <form action=\"codes.php?shop=$codeshop\" method=\"POST\" id=\"form\" style=\"max\">
+                <input name=\"code\" value=\"$codecode\" hidden>
                 <div class=\"btn-group\">
             ";
             
     if ($codestatus == "VACANT") {
         echo "
-                    <input type="submit" name="action" value="Vacant" class="btn btn-success" disabled>
-                    <input type="submit" name="action" value="Sold" class="btn btn-outline-warning">
-                    <input type="submit" name="action" value="Invalid" class="btn btn-outline-danger">
+                    <input type=\"submit\" name=\"action\" value=\"Vacant\" class=\"btn btn-success\" disabled>
+                    <input type=\"submit\" name=\"action\" value=\"Sold\" class=\"btn btn-outline-warning\">
+                    <input type=\"submit\" name=\"action\" value=\"Invalid\" class=\"btn btn-outline-danger\">
         ";
     }
     if ($codestatus == "SOLD"){
         echo "
-                    <input type="submit" name="action" value="Vacant" class="btn btn-outline-success">
-                    <input type="submit" name="action" value="Sold" class="btn btn-warning" disabled>
-                    <input type="submit" name="action" value="Invalid" class="btn btn-outline-danger">
+                    <input type=\"submit\" name=\"action\" value=\"Vacant\" class=\"btn btn-outline-success\">
+                    <input type=\"submit\" name=\"action\" value=\"Sold\" class=\"btn btn-warning\" disabled>
+                    <input type=\"submit\" name=\"action\" value=\"Invalid\" class=\"btn btn-outline-danger\">
         ";
     }
     if ($codestatus == "INVALID") {
         echo "
-                    <input type="submit" name="action" value="Vacant" class="btn btn-outline-success">
-                    <input type="submit" name="action" value="Sold" class="btn btn-outline-warning">
-                    <input type="submit" name="action" value="Invalid" class="btn btn-danger" disabled>
+                    <input type=\"submit\" name=\"action\" value=\"Vacant\" class=\"btn btn-outline-success\">
+                    <input type=\"submit\" name=\"action\" value=\"Sold\" class=\"btn btn-outline-warning\">
+                    <input type=\"submit\" name=\"action\" value=\"Invalid\" class=\"btn btn-danger\" disabled>
         ";
     }
     echo "
