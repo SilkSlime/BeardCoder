@@ -6,7 +6,6 @@ $method = $_SERVER["REQUEST_METHOD"];
 if ($method == "POST") {
     $username = pg_escape_string($_POST["username"]);
     $password = $_POST["password"];
-    echo $_POST["code"];
 
     $code = pg_escape_string($_POST["code"]);
     $shop = pg_escape_string($_POST["shop"]);
@@ -19,7 +18,8 @@ if ($method == "POST") {
     $result = pg_query($query);
     $line = pg_fetch_assoc($result);
     if (password_verify($password, $line['passwordhash'])) {
-        $query = "INSERT INTO codes (code, shop, owner) VALUES ($code, $shop, $owner);";
+        echo $_POST["code"];
+        $query = "INSERT INTO codes (code, shop, owner) VALUES ('$code', '$shop', '$owner');";
         $result = pg_query($query);
         if ($result) {
             echo 'Good!';
