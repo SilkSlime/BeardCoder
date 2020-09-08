@@ -7,7 +7,7 @@ $method = $_SERVER["REQUEST_METHOD"];
 $dbconn = pg_connect(getenv("DATABASE_URL"))
     or die('Не удалось соединиться: ' . pg_last_error());
 // Выполнение SQL-запроса
-$query = 'SELECT * FROM Users';
+$query = 'SELECT * FROM codes';
 $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
 
 // Вывод результатов в HTML
