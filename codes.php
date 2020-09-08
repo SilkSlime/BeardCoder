@@ -41,7 +41,7 @@ if ($method == "POST") {
     }
     if ($action == "Sold")
     {
-        $query = "UPDATE codes SET status='SOLD' WHERE code='$codecodeEscaped' AND owner='$usernameEscaped' AND shop='$codeshopEscaped';";
+        $query = "UPDATE codes SET status='SOLD' WHERE code='$codecodeEscaped';";
         pg_query($query);
     }
     if ($action == "INVALID")
