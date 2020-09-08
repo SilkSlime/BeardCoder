@@ -44,7 +44,7 @@ if ($method == "POST") {
         $query = "UPDATE codes SET status='SOLD' WHERE code='$codecodeEscaped' AND owner='$usernameEscaped' AND shop='$codeshopEscaped';";
         pg_query($query);
     }
-    if ($action == "INVALID")
+    if ($action == "Invalid")
     {
         $query = "UPDATE codes SET status='INVALID' WHERE code='$codecodeEscaped' AND owner='$usernameEscaped' AND shop='$codeshopEscaped';";
         pg_query($query);
