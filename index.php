@@ -17,7 +17,7 @@ if (!$user)
 <!-- -------------------------------------------------------- -->
 <?php
 if ($method == "GET") {
-
+    $categories = 
 }
 ?>
 <!-- -------------------------------------------------------- -->
@@ -58,13 +58,6 @@ if ($method == "POST") {
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
-<?php
-    $connectionString = "host=ec2-54-228-209-117.eu-west-1.compute.amazonaws.com dbname=dtekv859mvf37 user=gidqbwvdasyumj port=5432 password=0e4a5066217587c4dfcd86d14a457c4db500a868f4573d8c13bba59bc822dba0";
-    $connection = pg_connect($connectionString);
-    $rows = pg_copy_to($connection, 'Codes');
-    echo($rows[0]["code"]);
-    echo($rows);
-    ?>
     <div class="container">
 
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -129,11 +122,6 @@ if ($method == "POST") {
                 </tr>
             </tbody>
         </table>
-        <template>
-            <div>
-                <div v-for="data in myJson">{{data}}</div>
-            </div>
-        </template>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
