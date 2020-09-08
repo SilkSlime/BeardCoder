@@ -59,24 +59,25 @@ if ($method == "POST") {
     <div class="container">
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
-<div class="card mt-3">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                    <img src="https://w7.pngwing.com/pngs/8/830/png-transparent-domino-s-pizza-take-out-pizza-delivery-angle-rectangle-logo.png" class="rounded float-right img-thumbnail" style="width: 200px; height: 200px; object-fit: cover;">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                </p>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col text-center">
-                        <div href="#" class="btn btn-primary">View avalible codes...</div>
-                    </div>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+                <img src="https://w7.pngwing.com/pngs/8/830/png-transparent-domino-s-pizza-take-out-pizza-delivery-angle-rectangle-logo.png" class="rounded float-right img-thumbnail" style="width: 200px; height: 200px; object-fit: cover;">
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+            </p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col text-center">
+                    <div href="#" class="btn btn-primary">View avalible codes...</div>
                 </div>
             </div>
         </div>
+    </div>
 <!-- -------------------------------------------------------- -->
 <?php
+    echo '';
     while ($shop = pg_fetch_assoc($shops)) {
         echo $shop['shop'];
     }
