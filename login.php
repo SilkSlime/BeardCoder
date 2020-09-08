@@ -48,7 +48,7 @@ $method = $_SERVER["REQUEST_METHOD"];
         </a>
         </div>
     </nav>
-    <div class="container" style="max-width: 600px;">
+    <div class="container mt-5" style="max-width: 600px;">
         <form action="login.php" method="POST" id="form" style="max">
             <div class="form-row">
                 <div class="col-md-12 mb-3">

@@ -17,10 +17,7 @@ if (!$user)
 <!-- -------------------------------------------------------- -->
 <?php
 if ($method == "GET") {
-    $codeshop = $_GET['shop'];
-    $codeshopEscaped = pg_escape_string($codeshop);
-    $query = "SELECT * FROM codes WHERE owner='$user' AND shop='$codeshopEscaped';";
-    $codes = pg_query($query);
+
 }
 ?>
 <!-- -------------------------------------------------------- -->
@@ -62,68 +59,7 @@ if ($method == "POST") {
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
-<?php
-echo "<h2>$codeshop</h2>";
-?>
-<table class="table table-hover ">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Code</th>
-            <th scope="col">Badge</th>
-            <th scope="col">Status</th>
-            <th scope="col">Extra</th>
-        </tr>
-    </thead>
-    <tbody>
-<?php
-$i = 1;
-while ($code = pg_fetch_assoc($codes)) {
-    $codecode = $code["code"];
-    $codeowner = $code["owner"];
-    $codebadge = $code["badge"];
-    $codestatus = $code["status"];
-    $codeextra = $code["extra"];
-    echo "
-    <tr>
-        <th scope=\"row\">$i</th>
-        <td>$codecode</td>
-        <td><span class=\"badge bg-danger\">$codebadge</span></td>
-        <td>
-            <div class=\"btn-group\">";
-    if ($codestatus == "VACANT") {
-        echo "
-                <a class=\"btn btn-sm btn-success disabled\">Vacant</a>
-                <a class=\"btn btn-sm btn-outline-warning\">Sold</a>
-                <a class=\"btn btn-sm btn-outline-danger\">Invalid</a>
-        ";
-    }
-    if ($codestatus == "INVALID"){
-        echo "
-                <a class=\"btn btn-sm btn-outline-success\">Vacant</a>
-                <a class=\"btn btn-sm btn-outline-warning\">Sold</a>
-                <a class=\"btn btn-sm btn-danger disabled\">Invalid</a>
-        ";
-    }
-    if ($codestatus == "SOLD") {
-        echo "
-                <a class=\"btn btn-sm btn-outline-success\">Vacant</a>
-                <a class=\"btn btn-sm btn-warning disabled\">Sold</a>
-                <a class=\"btn btn-sm btn-outline-danger\">Invalid</a>
-        ";
-    }
-    echo "
-                </div>
-            </td>
-            <td><span class=\"badge bg-primary\">$codeextra</span></td>
-        </tr>
-        ";
-    
-    $i++;
-}
-?>
-    </tbody>
-</table>
+
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
