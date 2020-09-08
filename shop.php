@@ -17,6 +17,8 @@ if (!$user)
 <!-- -------------------------------------------------------- -->
 <?php
 if ($method == "GET") {
+    $codeshop = $_GET['shop'];
+    $codeshopEscaped = pg_escape_string($codeshop);
     $query = "SELECT * FROM codes WHERE owner='$user';";
     $codes = pg_query($query);
 }
@@ -61,10 +63,47 @@ if ($method == "POST") {
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
 <?php
+echo "<h2>$codeshop";
+?>
+<table class="table table-hover ">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Code</th>
+            <th scope="col">Badge</th>
+            <th scope="col">Status</th>
+            <th scope="col">Extra</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php
+$i = 1;
 while ($code = pg_fetch_assoc($codes)) {
-    echo var_dump($code)+'<hr>';
+    $codecode = $code["code"];
+    $codeowner = $code["owner"];
+    $codebadge = $code["badge"];
+    $codestatus = $code["status"];
+    $codeextra = $code["extra"];
+    echo "
+    <tr>
+        <th scope=\"row\">$i</th>
+        <td>$codecode</td>
+        <td><span class=\"badge bg-danger\">$codebadge</span></td>
+        <td>
+            <div class=\"btn-group\">
+                <input type=\"radio\" class=\"btn-check\" name=\"options-outlined\" id=\"success-outlined\" autocomplete=\"off\" checked>
+                <label class=\"btn btn-outline-success\" for=\"success-outlined\">Remain</label>
+                <input type=\"radio\" class=\"btn-check\" name=\"options-outlined\" id=\"danger-outlined\" autocomplete=\"off\">
+                <label class=\"btn btn-outline-danger\" for=\"danger-outlined\">Sold</label>
+            </div>
+        </td>
+    </tr>
+    ";
+    $i++;
 }
 ?>
+    </tbody>
+</table>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             Saved!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -76,16 +115,7 @@ while ($code = pg_fetch_assoc($codes)) {
         <span class="badge bg-danger">-40%</span>
         <span class="badge bg-danger">Additional Pepperoni</span>
         
-        <table class="table table-hover ">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Code</th>
-                    <th scope="col">Badge</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
+        
                 <tr>
                     <th scope="row">1</th>
                     <td>98731CEC</td>
@@ -125,8 +155,7 @@ while ($code = pg_fetch_assoc($codes)) {
                         </div>
                     </td>
                 </tr>
-            </tbody>
-        </table>
+            
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
