@@ -1,4 +1,5 @@
 <?php
+echo("<h1>AAA</h1>");
 session_start();
 $user = session("username");
 $method = $_SERVER["REQUEST_METHOD"]
