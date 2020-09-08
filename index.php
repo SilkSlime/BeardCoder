@@ -63,6 +63,8 @@ if ($method == "POST") {
 <!-- -------------------------------------------------------- -->
 <?php
     echo var_dump($shops);
+    echo '<hr>';
+    echo var_dump($shops);
 ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             Saved!
