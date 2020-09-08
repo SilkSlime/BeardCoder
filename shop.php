@@ -17,7 +17,7 @@ if (!$user)
 <!-- -------------------------------------------------------- -->
 <?php
 if ($method == "GET") {
-    $query = "SELECT * FROM codes WHERE owner=$user;";
+    $query = "SELECT * FROM codes WHERE owner='$user';";
     $codes = pg_query($query);
 }
 ?>
