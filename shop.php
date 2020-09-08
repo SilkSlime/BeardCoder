@@ -91,8 +91,8 @@ while ($code = pg_fetch_assoc($codes)) {
         <td><span class=\"badge bg-danger\">$codebadge</span></td>
         <td>
             <div class=\"btn-group\">
-                <a class=\"btn btn-sm btn-outline-succes\" disabled>
-                <a class=\"btn btn-sm btn-outline-warning\">
+                <a class=\"btn btn-sm btn-outline-succes\" disabled>Vacant</a>
+                <a class=\"btn btn-sm btn-outline-warning\">Taken</a>
             </div>
         </td>
         <td><span class=\"badge bg-primary\">$codeextra</span></td>
