@@ -17,7 +17,9 @@ if (!$user)
 <!-- -------------------------------------------------------- -->
 <?php
 if ($method == "GET") {
-    $categories = 
+    $query = 'SELECT * FROM shops';
+    $result = pg_query($query));
+    $shops = pg_fetch_assoc($result);
 }
 ?>
 <!-- -------------------------------------------------------- -->
@@ -55,11 +57,13 @@ if ($method == "POST") {
             </button>
         </div>
     </nav>
-<!-- -------------------------------------------------------- -->
-<!-- -------------------------------------------------------- -->
-<!-- -------------------------------------------------------- -->
     <div class="container">
-
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
+<?php
+    echo var_dump($shops);
+?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             Saved!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -122,6 +126,9 @@ if ($method == "POST") {
                 </tr>
             </tbody>
         </table>
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
+<!-- -------------------------------------------------------- -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
