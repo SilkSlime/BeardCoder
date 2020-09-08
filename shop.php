@@ -91,10 +91,8 @@ while ($code = pg_fetch_assoc($codes)) {
         <td><span class=\"badge bg-danger\">$codebadge</span></td>
         <td>
             <div class=\"btn-group\">
-                <input type=\"radio\" class=\"btn-check\" name=\"options-outlined\" id=\"success-outlined\" autocomplete=\"off\" checked>
-                <label class=\"btn btn-outline-success\" for=\"success-outlined\">Remain</label>
-                <input type=\"radio\" class=\"btn-check\" name=\"options-outlined\" id=\"danger-outlined\" autocomplete=\"off\">
-                <label class=\"btn btn-outline-danger\" for=\"danger-outlined\">Sold</label>
+                <a class=\"btn btn-sm btn-outline-succes\" disabled>
+                <a class=\"btn btn-sm btn-outline-warning\">
             </div>
         </td>
         <td><span class=\"badge bg-primary\">$codeextra</span></td>
