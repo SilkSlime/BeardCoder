@@ -77,6 +77,30 @@ if ($method == "POST") {
     </div>
 <!-- -------------------------------------------------------- -->
 <?php
+while ($shop = pg_fetch_assoc($shops)) {
+    $shopname = $shop['name']
+    $shopdescription = $shop['description']
+    $shopimage = $shop['image']
+    echo "
+    <div class=\"card mt-3\">
+        <div class=\"card-body\">
+            <h5 class=\"card-title\">$shopname</h5>
+            <p class=\"card-text\">
+                <img src=\"$shopimage\" class=\"rounded float-right img-thumbnail\" style=\"width: 120px; height: 120px; object-fit: cover;\">
+                $shopdescription
+            </p>
+        </div>
+        <div class=\"card-body\">
+            <div class=\"row\">
+                <div class=\"col text-center\">
+                    <div href=\"#\" class=\"btn btn-primary\">View avalible codes...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    ";
+    echo $shop['shop'];
+}
     echo '';
     while ($shop = pg_fetch_assoc($shops)) {
         echo $shop['shop'];
