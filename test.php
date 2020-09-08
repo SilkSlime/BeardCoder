@@ -1,25 +1,31 @@
 <?php
-echo("<div>AAA</div>");
 session_start();
-echo("<div>BBB</div>");
 echo(var_dump($_SESSION));
-echo("<div>AAA</div>");
 $method = $_SERVER["REQUEST_METHOD"];
-echo("<div>AAA</div>");
-echo("<div>AAA</div>");
-$db = parse_url(getenv("DATABASE_URL"));
-$pdo = new PDO("pgsql:" . sprintf(
-    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-    $db["host"],
-    $db["port"],
-    $db["user"],
-    $db["pass"],
-    ltrim($db["path"], "/")
-));
-echo("<div>AAA</div>");
 
-$data = $pdo->pgsqlCopyToArray('Users');
-echo("<div>AAA</div>");
-echo(var_dump($data));
-echo("<div>AAA</div>");
+// Соединение, выбор базы данных
+$dbconn = pg_connect(getenv("DATABASE_URL"))
+    or die('Не удалось соединиться: ' . pg_last_error());
+// Выполнение SQL-запроса
+$query = 'SELECT * FROM Users';
+$result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
+
+// Вывод результатов в HTML
+echo "<table>\n";
+while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td>$col_value</td>\n";
+    }
+    echo "\t</tr>\n";
+}
+echo "</table>\n";
+
+// Очистка результата
+pg_free_result($result);
+
+// Закрытие соединения
+pg_close($dbconn);
+
+
 ?>
