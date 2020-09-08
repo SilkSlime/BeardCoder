@@ -31,6 +31,9 @@ if ($method == "POST") {
     $codeshop = $_POST["shop"];
     $action = $_POST["action"];
     if ($action == "VACANT")
+    {
+        
+    }
 }
 ?>
 <!-- -------------------------------------------------------- -->
