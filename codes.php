@@ -50,6 +50,7 @@ if ($method == "POST") {
         pg_query($query);
     }
     redirect("/codes.php?shop=$codeshop");
+    exit();
 }
 ?>
 <!-- -------------------------------------------------------- -->
