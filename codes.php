@@ -92,29 +92,29 @@ while ($code = pg_fetch_assoc($codes)) {
         <td>$codecode</td>
         <td><span class=\"badge bg-danger\">$codebadge</span></td>
         <td>
-            <div class=\"btn-group\">
-                <form action=\"codes.php?shop=$codeshop\" method=\"POST\" id=\"form\" style=\"max\">
+            <form action=\"codes.php?shop=$codeshop\" method=\"POST\" id=\"form\" style=\"max\">
+                <div class=\"btn-group\">
             ";
             
     if ($codestatus == "VACANT") {
         echo "
-                <a class=\"btn btn-sm btn-success disabled\">Vacant</a>
-                <button class=\"btn btn-sm btn-outline-warning\">Sold</a>
-                <button class=\"btn btn-sm btn-outline-danger\">Invalid</a>
+                    <input type="submit" name="action" value="Vacant" class="btn btn-success" disabled>
+                    <input type="submit" name="action" value="Sold" class="btn btn-outline-warning">
+                    <input type="submit" name="action" value="Invalid" class="btn btn-outline-danger">
         ";
     }
-    if ($codestatus == "INVALID"){
+    if ($codestatus == "SOLD"){
         echo "
-                <button class=\"btn btn-sm btn-outline-success\">Vacant</a>
-                <button class=\"btn btn-sm btn-outline-warning\">Sold</a>
-                <a class=\"btn btn-sm btn-danger disabled\">Invalid</a>
+                    <input type="submit" name="action" value="Vacant" class="btn btn-outline-success">
+                    <input type="submit" name="action" value="Sold" class="btn btn-warning" disabled>
+                    <input type="submit" name="action" value="Invalid" class="btn btn-outline-danger">
         ";
     }
-    if ($codestatus == "SOLD") {
+    if ($codestatus == "INVALID") {
         echo "
-                <button class=\"btn btn-sm btn-outline-success\">Vacant</a>
-                <button class=\"btn btn-sm btn-warning disabled\">Sold</a>
-                <button class=\"btn btn-sm btn-outline-danger\">Invalid</a>
+                    <input type="submit" name="action" value="Vacant" class="btn btn-outline-success">
+                    <input type="submit" name="action" value="Sold" class="btn btn-outline-warning">
+                    <input type="submit" name="action" value="Invalid" class="btn btn-danger" disabled>
         ";
     }
     echo "
