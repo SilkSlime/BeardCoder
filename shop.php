@@ -92,7 +92,7 @@ while ($code = pg_fetch_assoc($codes)) {
             <td><span class=\"badge bg-danger\">$codebadge</span></td>
             <td>
                 <div class=\"btn-group\">
-                    <a class=\"btn btn-sm btn-outline-succes\" disabled>Vacant</a>
+                    <a class=\"btn btn-sm btn-outline-success\" disabled>Vacant</a>
                     <a class=\"btn btn-sm btn-outline-warning\">Taken</a>
                 </div>
             </td>
@@ -107,7 +107,7 @@ while ($code = pg_fetch_assoc($codes)) {
             <td><span class=\"badge bg-danger\">$codebadge</span></td>
             <td>
                 <div class=\"btn-group\">
-                    <a class=\"btn btn-sm btn-outline-succes\">Vacant</a>
+                    <a class=\"btn btn-sm btn-outline-success\">Vacant</a>
                     <a class=\"btn btn-sm btn-outline-warning\" disabled>Taken</a>
                 </div>
             </td>
