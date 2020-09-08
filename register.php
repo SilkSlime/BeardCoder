@@ -22,7 +22,7 @@ $dbconn = pg_connect(getenv("DATABASE_URL"));
             <input type="password" class="form-control" name="pass2" placeholder="Repeat password" required>
         </div>
     </div>
-    <button type="submit">отправить</button>
+    <button class="btn btn-block btn-outline-seccess" type="submit">отправить</button>
 </form>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

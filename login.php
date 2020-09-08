@@ -4,7 +4,28 @@ session_start();
 $user = $_SESSION["username"];
 $isAdmin = $_SESSION["isAdmin"];
 $dbconn = pg_connect(getenv("DATABASE_URL"));
+$method = $_SERVER["REQUEST_METHOD"];
 ?>
+<?php
+    if (!$user)
+    {
+        redirect('/');
+    }
+    if ($method == 'POST') {
+        $username = $_POST['username'];
+        $phash = password_hash($_POST["pass"], PASSWORD_ARGON2I);
+        $query = "SELECT * FROM users WHERE username='$username';";
+        $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
+        $line = pg_fetch_assoc($result, null, PGSQL_ASSOC);
+        if ($phash == $line['passwordhash']) {
+            $_SESSION['username'] = $username;
+            $_SESSION['isAdmin'] = $line['isadmin'];
+            redirect('/');
+        }
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +64,7 @@ $dbconn = pg_connect(getenv("DATABASE_URL"));
                     <input type="password" class="form-control" name="pass" placeholder="Rassword" required>
                 </div>
             </div>
-            <button type="submit">Login</button>
+            <button class="btn btn-block btn-outline-seccess" type="submit">Login</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
