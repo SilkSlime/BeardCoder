@@ -18,7 +18,7 @@ if ($method == "POST") {
     $result = pg_query($query);
     $line = pg_fetch_assoc($result);
     if (password_verify($password, $line['passwordhash'])) {
-        $query = "INSERT INTO codes (code, shop, `owner`, badge, `status`, extra) VALUES ($code, $shop, $owner, $badge, $status, $extra);";
+        $query = "INSERT INTO codes (code, shop, owner, badge, status, extra) VALUES ($code, $shop, $owner, $badge, $status, $extra);";
         $result = pg_query($query);
         echo 'Good!';
 
