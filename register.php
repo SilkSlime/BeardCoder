@@ -18,7 +18,7 @@
     <button action="submit">отправить</button>
 </form>
 <?php
-if ($method == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_POST["pass"]==$_POST["pass2"])
     {
         $phash = password_hash($_POST["pass"], PASSWORD_ARGON2I);
