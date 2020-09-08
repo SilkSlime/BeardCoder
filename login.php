@@ -2,7 +2,7 @@
 require('util/functions.php');
 session_start();
 $user = $_SESSION["username"];
-$isSU = $_SESSION["isAdmin"];
+$isSU = $_SESSION["su"];
 $dbconn = pg_connect(getenv("DATABASE_URL"));
 $method = $_SERVER["REQUEST_METHOD"];
 ?>
@@ -32,7 +32,7 @@ $method = $_SERVER["REQUEST_METHOD"];
         $line = pg_fetch_assoc($result);
         if (password_verify($password, $line['passwordhash'])) {
             $_SESSION['username'] = $username;
-            $_SESSION['isAdmin'] = $line['isadmin'];
+            $_SESSION['su'] = $line['su'];
             redirect('/');
         } else {
             echo "<script>alert('Invalid password')</script>";
