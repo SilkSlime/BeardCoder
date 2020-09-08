@@ -36,7 +36,7 @@ if ($method == "POST") {
     $usernameEscaped = pg_escape_string($username);
     if ($action == "Vacant")
     {
-        $query = "UPDATE codes SET status='VACANT' WHERE code='$codecodeEscaped' AND owner='$usernameEscaped' AND shop='$codeshopEscaped';";
+        $query = "UPDATE codes SET status='VACANT' WHERE code='$codecodeEscaped' AND shop='$codeshopEscaped';";
         pg_query($query);
     }
     if ($action == "Sold")
