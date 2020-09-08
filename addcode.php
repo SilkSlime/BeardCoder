@@ -19,14 +19,17 @@ if ($method == "POST") {
     $line = pg_fetch_assoc($result);
     if (password_verify($password, $line['passwordhash'])) {
         // Using All Escaped
-        $query = "INSERT INTO codes (code, shop, owner, badge, status, extra) VALUES ('$code', '$shop', '$owner', '$badge', '$status', '$extra');";
-        $result = pg_query($query);
-        if ($result) {
-            echo 'GOOD';
+        if ($_POST["code"]=='Hi, Server!') {
+            echo "Hi, Client!";
         } else {
-            echo 'BAD';
+            $query = "INSERT INTO codes (code, shop, owner, badge, status, extra) VALUES ('$code', '$shop', '$owner', '$badge', '$status', '$extra');";
+            $result = pg_query($query);
+            if ($result) {
+                echo 'GOOD';
+            } else {
+                echo 'BAD';
+            }
         }
-
     } else {
         echo 'BAD';
     }
