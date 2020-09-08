@@ -93,7 +93,7 @@ while ($code = pg_fetch_assoc($codes)) {
             <div class=\"btn-group\">";
     if ($codestatus == "VACANT") {
         echo "
-                <a class=\"btn btn-sm btn-success disbled\">Vacant</a>
+                <a class=\"btn btn-sm btn-success disabled\">Vacant</a>
                 <a class=\"btn btn-sm btn-outline-warning\">Sold</a>
                 <a class=\"btn btn-sm btn-outline-danger\">Invalid</a>
         ";
@@ -102,14 +102,14 @@ while ($code = pg_fetch_assoc($codes)) {
         echo "
                 <a class=\"btn btn-sm btn-outline-success\">Vacant</a>
                 <a class=\"btn btn-sm btn-outline-warning\">Sold</a>
-                <a class=\"btn btn-sm btn-danger disbled\">Invalid</a>
+                <a class=\"btn btn-sm btn-danger disabled\">Invalid</a>
         ";
     }
     if ($codestatus == "SOLD") {
         echo "
                 <a class=\"btn btn-sm btn-outline-success\">Vacant</a>
                 <a class=\"btn btn-sm btn-warning disabled\">Sold</a>
-                <a class=\"btn btn-sm btn-outline-danger disbled\">Invalid</a>
+                <a class=\"btn btn-sm btn-outline-danger\">Invalid</a>
         ";
     }
     echo "
