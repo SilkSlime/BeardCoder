@@ -1,46 +1,58 @@
 <?php
+require('functions.php')
 session_start();
-$user = session("user");
-$user_permissions = get_user_permissions_from_db($connection, $user["id"]);
-//----- ----- ----- VARIABLES ----- ----- -----//
-$site_title = "Sign Up";
-$method = $_SERVER["REQUEST_METHOD"];
-//----- ----- ----- RENDER ----- ----- -----//
-render("template_start");
-render("navbar", $user, $user_permissions);
+$user = $_SESSION["username"];
+$isAdmin = $_SESSION["isAdmin"];
+$dbconn = pg_connect(getenv("DATABASE_URL"));
 ?>
-
-<div class="card text-center mt-5">
-    <div class="card-header"><h3>Sign In</h3></div>
-    <div class="card-body">
-        <?php
-        if (!$user) {
-            render("signin_form");
-        }
-        else {
-            alert("You are already auth! But you can logout to sign in again...", "warning");
-        }
-        ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View'n'Control</title>
+    <link rel="icon" type="image/png" href="../ico/mustache.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="./mustache.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            BeardCoderApp
+        </a>
+            <div class="mr-auto mb-2 mb-lg-0">
+            </div>
+            <button class="btn btn-outline-success">
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                Save
+            </button>
+        </div>
+    </nav>
+    <div class="container">
+        <form action="login.php" method="POST" id="form">
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="John1337" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="pass" placeholder="Rassword" required>
+                </div>
+            </div>
+            <button type="submit">Login</button>
+        </form>
     </div>
-    <div class="card-footer">
-        <?php
-        if (!$user) {
-            form_button("Sign In!", "success", true);
-            if ($method == "POST") {
-                $form_username = post("username");
-                $form_pass = post("pass");
-                $errors = check_signin($connection, $form_username, $form_pass);
-                if (!$errors) {
-                    set_user_session($connection, $form_username);
-                    redirect("index.php", 0);
-                } else {
-                    print_errors($errors);
-                }
-            }
-        }
-        ?>
-    </div>
-</div>
-
-<?php mysqli_close($connection);
-require "render/template_end.php"; ?>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</body>
+</html>
+<?php
+pg_free_result($result);
+pg_close($dbconn);
+?>

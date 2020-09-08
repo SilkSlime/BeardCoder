@@ -1,4 +1,5 @@
 <?php
+require('functions.php')
 session_start();
 $user = $_SESSION["username"];
 $isAdmin = $_SESSION["isAdmin"];
