@@ -20,7 +20,11 @@ if ($method == "POST") {
     if (password_verify($password, $line['passwordhash'])) {
         $query = "INSERT INTO codes (code, shop, owner, badge, status, extra) VALUES (\"$code\", \"$shop\", \"$owner\", \"$badge\", \"$status\", \"$extra\");";
         $result = pg_query($query);
-        echo 'Good!';
+        if ($result) {
+            echo 'Good!';
+        } else {
+            echo 'Somthing bad!';
+        }
 
     } else {
         echo 'Wrong password/username!';
