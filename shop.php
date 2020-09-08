@@ -17,8 +17,8 @@ if (!$user)
 <!-- -------------------------------------------------------- -->
 <?php
 if ($method == "GET") {
-    $query = 'SELECT * FROM shops';
-    $shops = pg_query($query);
+    $query = 'SELECT * FROM codes WHERE owner=$username;';
+    $codes = pg_query($query);
 }
 ?>
 <!-- -------------------------------------------------------- -->
@@ -61,29 +61,8 @@ if ($method == "POST") {
 <!-- -------------------------------------------------------- -->
 <!-- -------------------------------------------------------- -->
 <?php
-while ($shop = pg_fetch_assoc($shops)) {
-    $shopname = $shop['name'];
-    $shopdescription = $shop['description'];
-    $shopimage = $shop['webimage'];
-    echo "
-    <div class=\"card mt-3\">
-        <div class=\"card-body\">
-            <h5 class=\"card-title\">$shopname</h5>
-            <p class=\"card-text\">
-                <img src=\"$shopimage\" class=\"rounded float-right img-thumbnail\" style=\"width: 120px; height: 120px; object-fit: cover;\">
-                $shopdescription
-            </p>
-        </div>
-        <div class=\"card-body\">
-            <div class=\"row\">
-                <div class=\"col text-center\">
-                    <div href=\"#\" class=\"btn btn-primary\">View avalible codes...</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    ";
-    echo $shop['shop'];
+while ($code = pg_fetch_assoc($codes)) {
+    echo var_dump($code+'<hr>');
 }
 ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
