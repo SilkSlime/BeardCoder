@@ -56,13 +56,11 @@ if ($method == "POST") {
         </div>
     </nav>
     <div class="container mt-5">
-<!-- -------------------------------------------------------- -->
-<!-- -------------------------------------------------------- -->
-<!-- -------------------------------------------------------- -->
-
-<!-- -------------------------------------------------------- -->
-<!-- -------------------------------------------------------- -->
-<!-- -------------------------------------------------------- -->
+    <div class="brn-group">
+        <input type="submit" name="action" value="Vacant" class="btn btn-success" disabled>
+        <input type="submit" name="action" value="Sold" class="btn btn-outline-warning">
+        <input type="submit" name="action" value="Invalid" class="btn btn-outline-danger">
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

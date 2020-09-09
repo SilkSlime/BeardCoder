@@ -122,23 +122,23 @@ while ($code = pg_fetch_assoc($codes)) {
             
     if ($codestatus == "VACANT") {
         echo "
-                    <input type=\"submit\" name=\"action\" value=\"Vacant\" class=\"btn btn-success\" disabled>
-                    <input type=\"submit\" name=\"action\" value=\"Sold\" class=\"btn btn-outline-warning\">
-                    <input type=\"submit\" name=\"action\" value=\"Invalid\" class=\"btn btn-outline-danger\">
+                    <input type=\"submit\" name=\"action\" value=\"Vacant\" class=\"btn btn-success btn-sm\" disabled>
+                    <input type=\"submit\" name=\"action\" value=\"Sold\" class=\"btn btn-outline-warning btn-sm\">
+                    <input type=\"submit\" name=\"action\" value=\"Invalid\" class=\"btn btn-outline-danger btn-sm\">
         ";
     }
     if ($codestatus == "SOLD"){
         echo "
-                    <input type=\"submit\" name=\"action\" value=\"Vacant\" class=\"btn btn-outline-success\">
-                    <input type=\"submit\" name=\"action\" value=\"Sold\" class=\"btn btn-warning\" disabled>
-                    <input type=\"submit\" name=\"action\" value=\"Invalid\" class=\"btn btn-outline-danger\">
+                    <input type=\"submit\" name=\"action\" value=\"Vacant\" class=\"btn btn-outline-success btn-sm\">
+                    <input type=\"submit\" name=\"action\" value=\"Sold\" class=\"btn btn-warning btn-sm\" disabled>
+                    <input type=\"submit\" name=\"action\" value=\"Invalid\" class=\"btn btn-outline-danger btn-sm\">
         ";
     }
     if ($codestatus == "INVALID") {
         echo "
-                    <input type=\"submit\" name=\"action\" value=\"Vacant\" class=\"btn btn-outline-success\">
-                    <input type=\"submit\" name=\"action\" value=\"Sold\" class=\"btn btn-outline-warning\">
-                    <input type=\"submit\" name=\"action\" value=\"Invalid\" class=\"btn btn-danger\" disabled>
+                    <input type=\"submit\" name=\"action\" value=\"Vacant\" class=\"btn btn-outline-success btn-sm\">
+                    <input type=\"submit\" name=\"action\" value=\"Sold\" class=\"btn btn-outline-warning btn-sm\">
+                    <input type=\"submit\" name=\"action\" value=\"Invalid\" class=\"btn btn-danger btn-sm\" disabled>
         ";
     }
     echo "
