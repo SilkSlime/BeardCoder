@@ -62,6 +62,7 @@ while ($code = pg_fetch_assoc($codes)) {
     $codestatus = $code["status"];
     $codeextra = $code["extra"];
     echo "$codecode;$codestatus;$codebadge<br>";
+}
 ?>
 <?php
 pg_free_result($result);
