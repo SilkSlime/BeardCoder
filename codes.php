@@ -20,7 +20,7 @@ if ($method == "GET") {
     $codeshop = $_GET['shop'];
     $codeshopEscaped = pg_escape_string($codeshop);
     $usernameEscaped = pg_escape_string($username);
-    $query = "SELECT * FROM codes WHERE owner='$usernameEscaped' AND shop='$codeshopEscaped' ORDER BY badge, status, code DESC;";
+    $query = "SELECT * FROM codes WHERE owner='$usernameEscaped' AND shop='$codeshopEscaped' ORDER BY badge DESC, status, code;";
     $codes = pg_query($query);
 }
 ?>
