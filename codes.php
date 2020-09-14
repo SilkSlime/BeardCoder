@@ -112,7 +112,7 @@ while ($code = pg_fetch_assoc($codes)) {
     echo "
     <tr>
         <th scope=\"row\">$i</th>
-        <td>$codecode</td>
+        <td><form id=\"myform\" method=\"POST\" action=\"https://fe.dominospizza.ru/api/ShoppingCart/validate-promotion\"><input type=\"hidden\" name=\"provider\" value=\"Dominos\"><input type=\"hidden\" name=\"code\" value=\"$codecode\"><a href=\"javascript:{}\" onclick=\"document.getElementById('myform').submit();\">$codecode</a></form></td>
         <td><span class=\"badge bg-danger\">$codebadge</span></td>
         <td>
             <form action=\"codes.php?shop=$codeshop\" method=\"POST\" id=\"form\" style=\"max\">
